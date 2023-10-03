@@ -12,15 +12,50 @@ namespace WordUnscrambler
         {
             List<MatchedWord> matchedWords = new List<MatchedWord>();
 
+            foreach(var scrambledWord in scrambledWords)
+            {
+                foreach(var word in wordList)
+                {
+                    //scrambled word matches with word
+                    if(scrambledWord.Equals(word, StringComparison.OrdinalIgnoreCase))
+                    {
+                        //matchedWords.Add();
+                    }
+                    //scrambled word doesn't match with word
+                    else
+                    {
+                        var arrayScrambledWord = scrambledWord.ToCharArray();
+                        var arrayWord = word.ToCharArray();
+
+                        Array.Sort(arrayScrambledWord);
+                        Array.Sort(arrayWord);
+
+                        var sortedScrambledWord = new string(arrayScrambledWord);
+                        var sortedWord = new string(arrayWord);
+
+                        /*
+                        if (sortedScrambledWord)
+                        {
+                            matchedWords.Add();
+                        }
+                        */
+                    }
+                }
+            }
+
             // Implement code here.
             // Work with "scrambledWords" and "matchedWords".
 
             MatchedWord BuildMatchedWord(string scrambledWord, string word)
             {
                 // Build a matched-word object here, so that you can return it.
-
+                MatchedWord matchedWord = new MatchedWord
+                {
+                    scrambledWord = scrambledWord,
+                    Word = word
+                };
                 //return matchedWord;
-                return new MatchedWord();  // Delete this line when done.
+                return matchedWord;  // Delete this line when done.
             }
 
             return matchedWords;
