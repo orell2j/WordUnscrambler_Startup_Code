@@ -14,15 +14,14 @@ namespace WordUnscrambler
             // Your Code here!
             try
             {
-                content = File.ReadAllLines(filename);
+                return File.ReadAllLines(filename);
 
             }
             catch(Exception ex)
             {
-                throw new Exception(ex.Message);
+                Console.WriteLine($"An error occurred while reading the file: {ex.Message}");
+                return null;
             }
-
-            return content;
         }
     }
 }
