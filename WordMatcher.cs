@@ -19,7 +19,7 @@ namespace WordUnscrambler
                     //scrambled word matches with word
                     if(scrambledWord.Equals(word, StringComparison.OrdinalIgnoreCase))
                     {
-                        //matchedWords.Add();
+                        matchedWords.Add(BuildMatchedWord(scrambledWord, word);
                     }
                     //scrambled word doesn't match with word
                     else
@@ -32,13 +32,12 @@ namespace WordUnscrambler
 
                         var sortedScrambledWord = new string(arrayScrambledWord);
                         var sortedWord = new string(arrayWord);
-
-                        /*
+                       
                         if (sortedScrambledWord)
                         {
-                            matchedWords.Add();
+                            matchedWords.Add(BuildMatchedWord(scrambledWord, word));
                         }
-                        */
+                        
                     }
                 }
             }
@@ -51,11 +50,10 @@ namespace WordUnscrambler
                 // Build a matched-word object here, so that you can return it.
                 MatchedWord matchedWord = new MatchedWord
                 {
-                    scrambledWord = scrambledWord,
+                    ScrambledWord = scrambledWord,
                     Word = word
                 };
-                //return matchedWord;
-                return matchedWord;  // Delete this line when done.
+                return matchedWord;
             }
 
             return matchedWords;
