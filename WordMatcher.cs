@@ -33,7 +33,7 @@ namespace WordUnscrambler
                         var sortedScrambledWord = new string(arrayScrambledWord);
                         var sortedWord = new string(arrayWord);
                        
-                        if (sortedScrambledWord)
+                        if (sortedScrambledWord.Equals(sortedWord))
                         {
                             matchedWords.Add(BuildMatchedWord(scrambledWord, word));
                         }

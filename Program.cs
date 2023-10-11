@@ -56,6 +56,9 @@ namespace WordUnscrambler
 
         private static void ExecuteScrambledWordsManualEntryScenario()
         {
+            var nameFile = Console.ReadLine();
+            string[] scrambledWords = input.Split(',');
+            DisplayMatchedUnscrambledWords(scrambledWords);
         }
 
         private static void DisplayMatchedUnscrambledWords(string[] scrambledWords)
@@ -65,6 +68,18 @@ namespace WordUnscrambler
 
             //call a word matcher method to get a list of structs of matched words.
             List<MatchedWord> matchedWords = _wordMatcher.Match(scrambledWords, wordList);
+
+            if (matchedWords.Any())
+            {
+                foreach(var matchedWord in matchedWords)
+                {
+                    Console.WriteLine($"Match found for {matchedWord.ScrambledWord}: {matchedWord.Word}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No matches found.");
+            }
         }
     }
 }
