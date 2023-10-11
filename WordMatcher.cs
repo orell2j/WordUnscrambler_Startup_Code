@@ -37,7 +37,6 @@ namespace WordUnscrambler
                         {
                             matchedWords.Add(BuildMatchedWord(scrambledWord, word));
                         }
-                        
                     }
                 }
             }
@@ -55,9 +54,7 @@ namespace WordUnscrambler
                 };
                 return matchedWord;
             }
-
             return matchedWords;
         } 
     }
-
 }
