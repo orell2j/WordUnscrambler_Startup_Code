@@ -14,7 +14,31 @@ namespace WordUnscrambler
         private static readonly WordMatcher _wordMatcher = new WordMatcher();
 
         static void Main(string[] args)
-        {
+        {       Console.WriteLine("Choose your language preference:");
+            Console.WriteLine("1 - English");
+            Console.WriteLine("2 - French (French Canada)");
+
+            string choice = Console.ReadLine();
+
+            if (choice == "2")
+            {
+                // Set the program to use French (French Canada) culture.
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-CA");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr-CA");
+            }
+            else
+            {
+                // Default to English culture.
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            }
+
+            // Access localized strings from resource files.
+            string welcomeMessage = Resources.WelcomeMessage; // Accesses the appropriate resource based on the current culture.
+
+            Console.WriteLine(welcomeMessage);
+
+            
             try
             {
                 Console.WriteLine("Enter scrambled word(s) manually or as a file: F - file / M - manual");
